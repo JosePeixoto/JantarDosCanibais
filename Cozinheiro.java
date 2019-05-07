@@ -40,15 +40,15 @@ public class Cozinheiro extends Thread {
 	}
 
 	public synchronized void Servir(Canibal canibal) throws InterruptedException {
-		notify();
+		// notify();
+
 		if (this.caldeirao.getM() > 0) {
 
 			this.caldeirao.setM(this.caldeirao.getM() - 1);
 
-			// wait(1000);
+			wait(1000);
 			System.out.println("O canibal " + canibal.getNome() + " está se servindo!");
-
-			sleep(1000);
+			// sleep(1000);
 
 			Comer(canibal);
 
@@ -62,7 +62,6 @@ public class Cozinheiro extends Thread {
 		System.out.println("O canibal " + canibal.getNome() + " está comendo!");
 		canibal.setQtdComidas(canibal.getQtdComidas() + 1);
 		try {
-
 			sleep(3000);
 
 		} catch (InterruptedException e) {
