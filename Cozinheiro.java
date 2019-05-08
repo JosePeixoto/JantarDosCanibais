@@ -41,8 +41,6 @@ public class Cozinheiro extends Thread {
 			this.caldeirao.setM(this.caldeirao.getM() - 1);
 			canibal.prato = true;
 		} else {
-			System.out.println( canibal.getNome() + " dormiu!");
-
 			notify();
 		}
 
