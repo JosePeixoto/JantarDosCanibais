@@ -29,9 +29,14 @@ public class Jantar {
 
 		System.out.println("O cozinheiro encheu o caldeirao " + cozinheiro.getQtdCaldeiraoComplete());
 
-		System.out.println("O canibal " + canibal1.getNome() + " comeu " + canibal1.getQtdComidas() + " vezes");
-		System.out.println("O canibal " + canibal2.getNome() + " comeu " + canibal2.getQtdComidas() + " vezes");
-		System.out.println("O canibal " + canibal3.getNome() + " comeu " + canibal3.getQtdComidas() + " vezes");
+		System.out.println("O canibal " + canibal1.getNome() + " comeu " + canibal1.getQtdComidas() + " vezes; "
+				+ "dormiu " + canibal1.getQtdDormidas() + " vezes e " + " se serviu " + canibal1.getQtdServidas());
+
+		System.out.println("O canibal " + canibal2.getNome() + " comeu " + canibal2.getQtdComidas() + " vezes; "
+				+ "dormiu " + canibal2.getQtdDormidas() + " vezes e " + " se serviu " + canibal2.getQtdServidas());
+
+		System.out.println("O canibal " + canibal3.getNome() + " comeu " + canibal3.getQtdComidas() + " vezes; "
+				+ "dormiu " + canibal3.getQtdDormidas() + " vezes e " + " se serviu " + canibal3.getQtdServidas());
 
 	}
 

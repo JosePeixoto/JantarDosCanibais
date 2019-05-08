@@ -31,19 +31,23 @@ public class Cozinheiro extends Thread {
 		sleep(5000);
 
 		this.caldeirao.setM(5);
-		// notify();
+		notify();
 	}
 
 	public synchronized void Servir(Canibal canibal) throws InterruptedException {
+
 		if (this.caldeirao.getM() > 0) {
 
-			sleep(200);
+			sleep(300);
 			System.out.println("O canibal " + canibal.getNome() + " está se servindo!");
-			sleep(800);
+			sleep(700);
 
 			this.caldeirao.setM(this.caldeirao.getM() - 1);
+			canibal.setQtdServidas(canibal.getQtdServidas() + 1);
 			canibal.prato = true;
+
 		} else {
+			canibal.setQtdDormidas(canibal.getQtdDormidas() + 1);
 			notify();
 		}
 
@@ -52,6 +56,12 @@ public class Cozinheiro extends Thread {
 	public void Comer(Canibal canibal) throws InterruptedException {
 		System.out.println("O canibal " + canibal.getNome() + " está comendo!");
 		canibal.setQtdComidas(canibal.getQtdComidas() + 1);
+
+		if ((this.caldeirao.getM() - 1) == 0) {
+			System.out.println("Canibal " + canibal.getNome() + " foi acordar cozinheiro e dorme!");
+			canibal.qtdDormidas++;
+		}
+
 		canibal.prato = false;
 		sleep(3000);
 	}
