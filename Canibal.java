@@ -5,7 +5,7 @@ public class Canibal extends Thread {
 	private Caldeirao caldeirao;
 	private Cozinheiro cozinheiro;
 	private int qtdComidas = 0;
-	private int qtdDormiu = 0;
+	int qtdDormiu = 0;
 	public boolean prato = false;
 
 	public Canibal(String nome, Caldeirao caldeirao, Cozinheiro cozinheiro) {
@@ -23,7 +23,6 @@ public class Canibal extends Thread {
 				this.cozinheiro.Servir(this);
 				if (prato) {
 					this.cozinheiro.Comer(this);
-					this.qtdDormiu++;
 				}
 
 			} catch (InterruptedException e) {

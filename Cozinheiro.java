@@ -50,7 +50,7 @@ public class Cozinheiro extends Thread {
 		System.out.println( canibal.getNome() + " está comendo!");
 		canibal.setQtdComidas(canibal.getQtdComidas() + 1);
 		canibal.prato = false;
-
+		canibal.qtdDormiu++;
 		sleep(3000);
 	}
 
