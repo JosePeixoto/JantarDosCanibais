@@ -43,12 +43,10 @@ public class Cozinheiro extends Thread {
 		// notify();
 
 		if (this.caldeirao.getM() > 0) {
-
+			sleep(1000);
 			this.caldeirao.setM(this.caldeirao.getM() - 1);
-
 			wait(1000);
 			System.out.println("O canibal " + canibal.getNome() + " está se servindo!");
-			// sleep(1000);
 
 			Comer(canibal);
 
@@ -59,6 +57,7 @@ public class Cozinheiro extends Thread {
 	}
 
 	public void Comer(Canibal canibal) {
+
 		System.out.println("O canibal " + canibal.getNome() + " está comendo!");
 		canibal.setQtdComidas(canibal.getQtdComidas() + 1);
 		try {
