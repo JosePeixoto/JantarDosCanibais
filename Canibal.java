@@ -5,7 +5,6 @@ public class Canibal extends Thread {
 	private Caldeirao caldeirao;
 	private Cozinheiro cozinheiro;
 	private int qtdComidas = 0;
-	int qtdDormiu = 0;
 	public boolean prato = false;
 
 	public Canibal(String nome, Caldeirao caldeirao, Cozinheiro cozinheiro) {
@@ -20,7 +19,10 @@ public class Canibal extends Thread {
 		while (true) {
 
 			try {
-				this.cozinheiro.Servir(this);
+				synchronized (this) {
+					this.cozinheiro.Servir(this);
+				}
+
 				if (prato) {
 					this.cozinheiro.Comer(this);
 				}
@@ -43,14 +45,6 @@ public class Canibal extends Thread {
 
 	public void setQtdComidas(int qtdComidas) {
 		this.qtdComidas = qtdComidas;
-	}
-
-	public int getQtdDormiu() {
-		return qtdDormiu;
-	}
-
-	public void setQtdDormiu(int qtdDormiu) {
-		this.qtdDormiu = qtdDormiu;
 	}
 
 }

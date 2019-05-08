@@ -20,24 +20,27 @@ public class Cozinheiro extends Thread {
 	}
 
 	private synchronized void preparaJantar() throws InterruptedException {
+
 		setQtdCaldeiraoComplete(this.getQtdCaldeiraoComplete() + 1);
 
 		while (this.caldeirao.getM() > 0)
 			wait();
 
-		System.out.println("Cozinheiro acordado!");
-		System.out.println("Cozinheiro preparando o jantar!");
+		System.out.println("Cozinheiro preparando!");
 
 		sleep(5000);
 
 		this.caldeirao.setM(5);
-		notify();
+		// notify();
 	}
 
 	public synchronized void Servir(Canibal canibal) throws InterruptedException {
 		if (this.caldeirao.getM() > 0) {
-			System.out.println( canibal.getNome() + " está se servindo!");
-			sleep(1000);
+
+			sleep(200);
+			System.out.println("O canibal " + canibal.getNome() + " está se servindo!");
+			sleep(800);
+
 			this.caldeirao.setM(this.caldeirao.getM() - 1);
 			canibal.prato = true;
 		} else {
@@ -47,10 +50,9 @@ public class Cozinheiro extends Thread {
 	}
 
 	public void Comer(Canibal canibal) throws InterruptedException {
-		System.out.println( canibal.getNome() + " está comendo!");
+		System.out.println("O canibal " + canibal.getNome() + " está comendo!");
 		canibal.setQtdComidas(canibal.getQtdComidas() + 1);
 		canibal.prato = false;
-		canibal.qtdDormiu++;
 		sleep(3000);
 	}
 
