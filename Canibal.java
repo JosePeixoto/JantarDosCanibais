@@ -5,6 +5,7 @@ public class Canibal extends Thread {
 	private Caldeirao caldeirao;
 	private Cozinheiro cozinheiro;
 	private int qtdComidas = 0;
+	public boolean prato = false;
 
 	public Canibal(String nome, Caldeirao caldeirao, Cozinheiro cozinheiro) {
 		this.nome = nome;
@@ -16,8 +17,14 @@ public class Canibal extends Thread {
 	public void run() {
 
 		while (true) {
+
 			try {
 				this.cozinheiro.Servir(this);
+				if (prato) {
+					this.cozinheiro.Comer(this);
+				}
+				
+				
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

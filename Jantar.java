@@ -26,7 +26,7 @@ public class Jantar {
 		canibal1.stop();
 		canibal2.stop();
 		canibal3.stop();
-		
+
 		System.out.println("O cozinheiro encheu o caldeirao " + cozinheiro.getQtdCaldeiraoComplete());
 
 		System.out.println("O canibal " + canibal1.getNome() + " comeu " + canibal1.getQtdComidas() + " vezes");
